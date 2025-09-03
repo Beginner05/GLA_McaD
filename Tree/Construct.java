@@ -1,5 +1,6 @@
 package Tree;
 
+import java.lang.classfile.components.ClassPrinter.Node;
 import java.util.*;
 
 public class Construct {
@@ -215,5 +216,88 @@ public class Construct {
 	}
 
 //	end
+	
+	public void leftOrder()
+	{
+		LinkedList<node>q=new LinkedList();
+		q.addLast(root);
+		
+		q.addLast(null);
+		int lvl=0;
+		int arr[]=new int[1];
+		arr[0]=-1;
+//		arr[0]=-1;
+		while(!q.isEmpty())
+		{
+			node temp=q.removeFirst();
+			if(temp==null)
+			{
+				System.out.println(arr[0]);
+				arr=new int[1];
+				arr[0]=-1;
+				lvl++;
+			if(q.isEmpty())break;
+				q.addLast(null);
+				continue;
+			}
+			if(arr[0]==-1)
+			{
+				arr[0]=temp.val;
+			}
+			if(temp.left!=null)
+			{
+				q.addLast(temp.left);
+			}
+			if(temp.right!=null)
+			{
+				q.addLast(temp.right);
+			}
+		}
+	}
+	
+	public void rightOrder()
+	{
+		
+		LinkedList<node>q=new LinkedList();
+		ArrayList<Integer>list=new ArrayList();
+		int arr[]=new int[1];
+		q.addLast(root);
+		q.addLast(null);
+	int lvl=0;
+	while(q.isEmpty()==false)
+	{
+		node temp=q.removeFirst();
+		if(temp==null)
+		{
+			list.add(arr[0]);
+			arr=new int[1];
+			if(q.isEmpty())break;
+			q.addLast(null);
+			lvl++;
+			continue;
+		}
+		arr[0]=temp.val;
+		if(temp.left!=null)
+		{
+			q.addLast(temp.left);
+		}
+		if(temp.right!=null) {
+			q.addLast(temp.right);
+		}
+		
+	}
+	return ;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
